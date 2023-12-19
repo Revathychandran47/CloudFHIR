@@ -15,7 +15,6 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.FileUtils;
-import org.json.JSONException;
 //import org.json.JSONObject;
 import org.json.simple.JSONObject;
 import java.io.*;
@@ -28,11 +27,15 @@ import static org.junit.Assert.assertEquals;
 import com.opencsv.CSVReader;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.junit.Assert;
 
 public class utils {
+    private static String jsonTemplate = getGlobalValue("jsonTemplate");
      static RequestSpecification requestSpecification;
      static ResponseSpecification responseSpecification;
      static Response response;
+     static Response azureResponse;
+     static Response smileResponse;
      static RequestSpecification req;
      static APIResources resourceAPI;
     static String JDBC_DRIVER= "org.postgresql.Driver";
@@ -163,24 +166,36 @@ public class utils {
 
 
     public static Response readDataFromAzure(String resourceNameID) throws IOException {
-        //Reading access token
-        response= given().spec(requestSpecification("azure"))
-                .header("Content-Type", "application/x-www-form-urlencoded").
-                formParam("grant_type","Client_Credentials").
-                formParam("client_id","81848d30-b606-4183-9e7f-4622ccfb6796").
-                formParam("client_secret","B6F8Q~9oG~i9LQwbkvbcksoqaFf9_iMjMoVS4c2A").
-                formParam("resource","https://cloudfhir-cloudfhirservice.fhir.azurehealthcareapis.com").
-                formParam("scope","https%3A%2F%2Fgraph.microsoft.com%2F.default").
-                when().post("https://login.microsoftonline.com/d3bd044e-5719-4125-8fc0-732ef8c5a28c/oauth2/token");
+            //Reading access token
+            response = given().spec(requestSpecification("azure"))
+                    .header("Content-Type", "application/x-www-form-urlencoded").
+                    formParam("grant_type", "Client_Credentials").
+                    formParam("client_id", "81848d30-b606-4183-9e7f-4622ccfb6796").
+                    formParam("client_secret", "B6F8Q~9oG~i9LQwbkvbcksoqaFf9_iMjMoVS4c2A").
+                    formParam("resource", "https://cloudfhir-cloudfhirservice.fhir.azurehealthcareapis.com").
+                    formParam("scope", "https%3A%2F%2Fgraph.microsoft.com%2F.default").
+                    when().post("https://login.microsoftonline.com/d3bd044e-5719-4125-8fc0-732ef8c5a28c/oauth2/token");
 
-        //Fetch access token
-        String accessToken = getJsonPath(response,"access_token");
+            //Fetch access token
+            String accessToken = getJsonPath(response, "access_token");
 
+            //Read data from azure using the token
+            response = given().spec(new RequestSpecBuilder().setBaseUri(getGlobalValue("azureBaseUrl")).
+                            setContentType(ContentType.JSON).build()).
+                    header("Authorization", "Bearer " + accessToken).
+                    when().get("https://cloudfhir-cloudfhirservice.fhir.azurehealthcareapis.com" + "/" + resourceNameID);
+
+
+        return response;
+
+    }
+
+    public static Response readDataFromSmile(String resourceName,String smileID) throws IOException {
         //Read data from azure using the token
-        response= given().spec(new RequestSpecBuilder().setBaseUri(getGlobalValue("azureBaseUrl")).
-                setContentType(ContentType.JSON).build()).
-                header("Authorization","Bearer "+accessToken).
-                when().get("https://cloudfhir-cloudfhirservice.fhir.azurehealthcareapis.com"+"/"+resourceNameID);
+        response = given().spec(new RequestSpecBuilder().setBaseUri(getGlobalValue("azureBaseUrl")).
+                        setContentType(ContentType.JSON).build()).
+                when().get("https://qa-fhir.mpowered-health.com/fhir/DEFAULT/"+resourceName+ "/" + smileID);
+
 
         return response;
 
@@ -279,6 +294,30 @@ public class utils {
             e.printStackTrace();
         }
         return columnNames;
+    }
+
+    public static void verifyElement(int i, Response azureResponse, Response smileResponse) throws IOException {
+        ArrayList<JSONObject> smileData = getResourceValues("smileOutput");
+            JSONObject jsonObj = smileData.get(i);
+            Set<String> keys  = jsonObj.keySet();
+            System.out.println(keys);
+            String nodeElement = null;
+        for (int j = i; j == i; j++) {
+            for (String item : keys) {
+                if(item.equalsIgnoreCase("meta")||item.equalsIgnoreCase("extension")||item.equalsIgnoreCase("id")){
+                    continue;
+                }
+                JsonPath j1 = azureResponse.jsonPath();
+                System.out.println("item.........."+item);
+                System.out.println("Azure "+j1.get(item).toString());
+                String azureNodeElement=j1.get(item).toString();
+
+                JsonPath j2 = smileResponse.jsonPath();
+                nodeElement=j2.get(item).toString();
+                System.out.println("nodeElement: "+nodeElement);
+                    Assert.assertEquals(nodeElement, azureNodeElement);
+            }
+        }
     }
 
 
