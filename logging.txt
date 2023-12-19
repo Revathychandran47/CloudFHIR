@@ -1,0 +1,84 @@
+Request method:	POST
+Request URI:	https://login.microsoftonline.com/d3bd044e-5719-4125-8fc0-732ef8c5a28c/oauth2/token
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	grant_type=Client_Credentials
+				client_id=81848d30-b606-4183-9e7f-4622ccfb6796
+				client_secret=B6F8Q~9oG~i9LQwbkvbcksoqaFf9_iMjMoVS4c2A
+				resource=https://cloudfhir-cloudfhirservice.fhir.azurehealthcareapis.com
+				scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Cache-Control: no-store, no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+Expires: -1
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Content-Type-Options: nosniff
+P3P: CP="DSP CUR OTPi IND OTRi ONL FIN"
+x-ms-request-id: 985fbe70-04e2-415c-ad83-309287f38100
+x-ms-ests-server: 2.1.16942.4 - EUS ProdSlices
+X-XSS-Protection: 0
+Set-Cookie: fpc=ArGV5WiMtPJHk6cxHfihFdssUWn0AQAAAEX0Ed0OAAAA; expires=Wed, 17-Jan-2024 08:05:26 GMT; path=/; secure; HttpOnly; SameSite=None
+Set-Cookie: x-ms-gateway-slice=estsfd; path=/; secure; samesite=none; httponly
+Set-Cookie: stsservicecookie=estsfd; path=/; secure; samesite=none; httponly
+Date: Mon, 18 Dec 2023 08:05:26 GMT
+Content-Length: 1560
+
+{
+    "token_type": "Bearer",
+    "expires_in": "3599",
+    "ext_expires_in": "3599",
+    "expires_on": "1702890326",
+    "not_before": "1702886426",
+    "resource": "https://cloudfhir-cloudfhirservice.fhir.azurehealthcareapis.com",
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2Nsb3VkZmhpci1jbG91ZGZoaXJzZXJ2aWNlLmZoaXIuYXp1cmVoZWFsdGhjYXJlYXBpcy5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kM2JkMDQ0ZS01NzE5LTQxMjUtOGZjMC03MzJlZjhjNWEyOGMvIiwiaWF0IjoxNzAyODg2NDI2LCJuYmYiOjE3MDI4ODY0MjYsImV4cCI6MTcwMjg5MDMyNiwiYWlvIjoiRTJWZ1lGaG15RmY4N3ZUUzhEK3VZdDhqVHZtekFnQT0iLCJhcHBpZCI6IjgxODQ4ZDMwLWI2MDYtNDE4My05ZTdmLTQ2MjJjY2ZiNjc5NiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2QzYmQwNDRlLTU3MTktNDEyNS04ZmMwLTczMmVmOGM1YTI4Yy8iLCJvaWQiOiI1MjliYTE0Yi0wNzNhLTQzODEtOWZmMi04MzNkZmNlNzNhOWIiLCJyaCI6IjAuQWJjQVRnUzkweGxYSlVHUHdITXUtTVdpak5oNFowX3ZXdHhEb2Ytd2MzSkxsSlczQUFBLiIsInJvbGVzIjpbInN5c3RlbS5hbGwucmVhZCIsInN5c3RlbS5hbGwuYWxsIl0sInN1YiI6IjUyOWJhMTRiLTA3M2EtNDM4MS05ZmYyLTgzM2RmY2U3M2E5YiIsInRpZCI6ImQzYmQwNDRlLTU3MTktNDEyNS04ZmMwLTczMmVmOGM1YTI4YyIsInV0aSI6ImNMNWZtT0lFWEVHdGd6Q1NoX09CQUEiLCJ2ZXIiOiIxLjAifQ.lp4AjbkU1BINvF0LAXyBy84LbnbohyodtENR0B23HNBWxYtErOIKUd67r0NHQwYewMGpEVEzJctaLOOaKLWUwu34m3pGQQ8Wo4R-8TfjAsvUMYHAa9226giHIfIbBxkophNcvvDcebJayYlR2bbxvWxLr5H1FdytkMV7nYAXg8v2Ei3-MefQMlo7Lu1erc-abYzl1gjf9gVFSJar-9e8Q4HrDWPNXSQtVM28zbCT-A5vox7_-0Qz2tTLS0MuftBoy6uAMZ3GENDtpEHSPrUjNj94f00frnMg59J-CijFZBTOpt1E_-VbMCLb_WzO-zVRvZnTcRWlKj9tIVQeXXX9yA"
+}
+Request method:	POST
+Request URI:	https://login.microsoftonline.com/d3bd044e-5719-4125-8fc0-732ef8c5a28c/oauth2/token
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	grant_type=Client_Credentials
+				client_id=81848d30-b606-4183-9e7f-4622ccfb6796
+				client_secret=B6F8Q~9oG~i9LQwbkvbcksoqaFf9_iMjMoVS4c2A
+				resource=https://cloudfhir-cloudfhirservice.fhir.azurehealthcareapis.com
+				scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Cache-Control: no-store, no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+Expires: -1
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Content-Type-Options: nosniff
+P3P: CP="DSP CUR OTPi IND OTRi ONL FIN"
+x-ms-request-id: 6181898b-dd5c-421a-bd40-3b7f96259a00
+x-ms-ests-server: 2.1.16942.4 - NCUS ProdSlices
+X-XSS-Protection: 0
+Set-Cookie: fpc=Aow6Pfg8-BpDjrVbFqa_RWksUWn0AQAAAEv0Ed0OAAAA; expires=Wed, 17-Jan-2024 08:05:31 GMT; path=/; secure; HttpOnly; SameSite=None
+Set-Cookie: x-ms-gateway-slice=estsfd; path=/; secure; samesite=none; httponly
+Set-Cookie: stsservicecookie=estsfd; path=/; secure; samesite=none; httponly
+Date: Mon, 18 Dec 2023 08:05:31 GMT
+Content-Length: 1560
+
+{
+    "token_type": "Bearer",
+    "expires_in": "3599",
+    "ext_expires_in": "3599",
+    "expires_on": "1702890331",
+    "not_before": "1702886431",
+    "resource": "https://cloudfhir-cloudfhirservice.fhir.azurehealthcareapis.com",
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSIsImtpZCI6IlQxU3QtZExUdnlXUmd4Ql82NzZ1OGtyWFMtSSJ9.eyJhdWQiOiJodHRwczovL2Nsb3VkZmhpci1jbG91ZGZoaXJzZXJ2aWNlLmZoaXIuYXp1cmVoZWFsdGhjYXJlYXBpcy5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kM2JkMDQ0ZS01NzE5LTQxMjUtOGZjMC03MzJlZjhjNWEyOGMvIiwiaWF0IjoxNzAyODg2NDMxLCJuYmYiOjE3MDI4ODY0MzEsImV4cCI6MTcwMjg5MDMzMSwiYWlvIjoiRTJWZ1lPRGVPbTNDaE5yWE1YTWVsVDMrT1hON0FnQT0iLCJhcHBpZCI6IjgxODQ4ZDMwLWI2MDYtNDE4My05ZTdmLTQ2MjJjY2ZiNjc5NiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2QzYmQwNDRlLTU3MTktNDEyNS04ZmMwLTczMmVmOGM1YTI4Yy8iLCJvaWQiOiI1MjliYTE0Yi0wNzNhLTQzODEtOWZmMi04MzNkZmNlNzNhOWIiLCJyaCI6IjAuQWJjQVRnUzkweGxYSlVHUHdITXUtTVdpak5oNFowX3ZXdHhEb2Ytd2MzSkxsSlczQUFBLiIsInJvbGVzIjpbInN5c3RlbS5hbGwucmVhZCIsInN5c3RlbS5hbGwuYWxsIl0sInN1YiI6IjUyOWJhMTRiLTA3M2EtNDM4MS05ZmYyLTgzM2RmY2U3M2E5YiIsInRpZCI6ImQzYmQwNDRlLTU3MTktNDEyNS04ZmMwLTczMmVmOGM1YTI4YyIsInV0aSI6Imk0bUJZVnpkR2tLOVFEdF9saVdhQUEiLCJ2ZXIiOiIxLjAifQ.jZ23THxcEJL9zCqFJZjzpGsYsNkz0Bq2_Oqx836cLsE_EgOLKggtCJvFCBeuqDR4eTbucUZ7IJoGnodhOKtDzkp1sunrtSnhQixZsmXX3AW4DkyykMZhHIUzybcyKznFbnce3xYFwmqgdypFH87lJvnmA_Hce7EBF53Slf9lOdWul6AebQqDZeei-RRmuIIbZ4HF75WgyH18pJnV3zJ6Aj-LTLjLX43Z4PWbwZNhLG-uWDPbVJUINWdQVH1cxuSdJTh6B4ZpSK72yCVbriyuBtg1_6rAjoY-GBmrdACsbT2q75Uuhv07y6tynhEmw8VhSc_Zidugsge0AZTOK-Erng"
+}
