@@ -42,6 +42,7 @@ import org.junit.Assert;
 
 public class utils {
     private static String jsonTemplate = getGlobalValue("jsonTemplate");
+
     static RequestSpecification requestSpecification;
     static ResponseSpecification responseSpecification;
     static Response response;
@@ -51,6 +52,7 @@ public class utils {
     static APIResources resourceAPI;
     static String JDBC_DRIVER = "org.postgresql.Driver";
     static String DB_URL = "jdbc:postgresql://mpowered-rds-qa.c3mwkdwpqglf.us-east-1.rds.amazonaws.com:5432/mpowered";
+
     //  Database credentials
     static String USER = "mpowered";
     static String PASS = "mpowered-server";
@@ -200,10 +202,15 @@ public class utils {
 
         //Fetch access token
         String accessToken = getJsonPath(response, "access_token");
+        return response;
 
+    }
+
+    public static Response readDataFromSmile(String resourceName,String smileID) throws IOException {
         //Read data from azure using the token
         response = given().spec(new RequestSpecBuilder().setBaseUri(getGlobalValue("azureBaseUrl")).
                         setContentType(ContentType.JSON).build()).
+
                 header("Authorization", "Bearer " + accessToken).
                 when().get("https://cloudfhir-cloudfhirservice.fhir.azurehealthcareapis.com" + "/" + resourceNameID);
 
@@ -217,7 +224,6 @@ public class utils {
         response = given().spec(new RequestSpecBuilder().setBaseUri(getGlobalValue("azureBaseUrl")).
                         setContentType(ContentType.JSON).build()).
                 when().get("https://qa-fhir.mpowered-health.com/fhir/DEFAULT/" + resourceName + "/" + smileID);
-
 
         return response;
 
@@ -622,6 +628,7 @@ public class utils {
                     System.out.println("procedureNameValue: " + procedureNameValue);
                     Assert.assertEquals(azureEXtensionValueString, procedureNameValue);
                 }
+
 
 
 

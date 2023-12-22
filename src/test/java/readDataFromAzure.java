@@ -18,6 +18,7 @@ public class readDataFromAzure extends utils {
         int count = getCount(jsonTemplate);
         System.out.println("count: " +getCount(jsonTemplate) );
 
+
         for(int i = 0; i< 1; i++){
 
             //Retrieving smileID and resourceType for each record
@@ -35,6 +36,7 @@ public class readDataFromAzure extends utils {
             //Fetch the corresponding azure ID From DB
             String azureID= getIDFromDB(sourceReference);
             System.out.println(azureID);
+
 
             //Reading patient data from azure
             azureResponse= readDataFromAzure(azureID);
