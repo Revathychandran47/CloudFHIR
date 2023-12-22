@@ -64,6 +64,8 @@ public class utils {
     static String maritalStatusValue = "";
     static String languageValue = "";
     static String dataSourceValue = "";
+    static String categoryValue = "";
+    static String procedureNameValue = "";
 
     static  Patient patient;
     static Procedure procedure;
@@ -346,6 +348,8 @@ public class utils {
         for (int j = i; j == i; j++) {
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode jsonNode = objectMapper.readTree(azureResponse.asString());
+            ObjectMapper objectMapper1 = new ObjectMapper();
+            JsonNode smileJsonNode = objectMapper1.readTree(smileResponse.asString());
 
             // Find the object with the "url" equal to "urlValue"
             JsonNode urlExtension = null;
@@ -366,10 +370,10 @@ public class utils {
             if (resource.equalsIgnoreCase("patient")) {
                 String smileName = null;
                 if (urlValue.equals("name")) {
-                    ObjectMapper objectMapper1 = new ObjectMapper();
-                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
+//                    ObjectMapper objectMapper1 = new ObjectMapper();
+//                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
-                    Patient patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(jsonNode));
+                    Patient patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     System.out.println(patient.getName().get(0).getGiven());
 
                     JsonNode nameNode = jsonNode.path("name");
@@ -385,12 +389,12 @@ public class utils {
 
                     Assert.assertEquals(azureEXtensionValueString, smileName);
                 }
-                String adress = null;
+
                 if (urlValue.equals("address")) {
-                    ObjectMapper objectMapper1 = new ObjectMapper();
-                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
+//                    ObjectMapper objectMapper1 = new ObjectMapper();
+//                    JsonNode smileJsonNode = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
-                    Patient patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(jsonNode));
+                    Patient patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getAddress().size(); l++) {
                         if (patient.getAddress().get(l).getUse() != null) {
                             fullAddress = fullAddress + "use:" + patient.getAddress().get(l).getUse();
@@ -421,10 +425,10 @@ public class utils {
 
 
                 if (urlValue.equals("email")) {
-                    ObjectMapper objectMapper1 = new ObjectMapper();
-                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
+//                    ObjectMapper objectMapper1 = new ObjectMapper();
+//                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
-                    Patient patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(jsonNode));
+                    Patient patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getTelecom().size(); l++) {
                         if (patient.getTelecom().get(l).getSystem().toString().equalsIgnoreCase("email")) {
                             email = email + "email:" + patient.getTelecom().get(l).getValue();
@@ -441,10 +445,10 @@ public class utils {
 
 
                 if (urlValue.equals("phone")) {
-                    ObjectMapper objectMapper1 = new ObjectMapper();
-                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
+//                    ObjectMapper objectMapper1 = new ObjectMapper();
+//                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
-                    patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(jsonNode));
+                    patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getTelecom().size(); l++) {
                         if (patient.getTelecom().get(l).getSystem().toString().equalsIgnoreCase("phone")) {
                             System.out.println("smilephone Value: " + patient.getTelecom().get(l).getValue());
@@ -462,10 +466,10 @@ public class utils {
 
 
                 if (urlValue.equals("preferredName")) {
-                    ObjectMapper objectMapper1 = new ObjectMapper();
-                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
+//                    ObjectMapper objectMapper1 = new ObjectMapper();
+//                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
-                    Patient patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(jsonNode));
+                    Patient patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getName().size(); l++) {
                         if (patient.getName().get(l).getUse().toString().equalsIgnoreCase("usual")) {
                             System.out.println("smile preferredName Value: " + patient.getName().get(l).getText());
@@ -480,10 +484,10 @@ public class utils {
 
 
                 if (urlValue.equals("previousName")) {
-                    ObjectMapper objectMapper1 = new ObjectMapper();
-                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
+//                    ObjectMapper objectMapper1 = new ObjectMapper();
+//                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
-                    patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(jsonNode));
+                    patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getName().size(); l++) {
                         if (patient.getName().get(l).getUse().toString().equalsIgnoreCase("old")) {
                             System.out.println("smile previousName Value: " + patient.getName().get(l).getText());
@@ -497,10 +501,10 @@ public class utils {
                 }
 
                 if (urlValue.equals("socialSecurityNumber")) {
-                    ObjectMapper objectMapper1 = new ObjectMapper();
-                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
+//                    ObjectMapper objectMapper1 = new ObjectMapper();
+//                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
-                    patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(jsonNode));
+                    patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getIdentifier().size(); l++) {
                         if (patient.getIdentifier().get(l).getSystem().equalsIgnoreCase("http://hl7.org/fhir/sid/us-ssn")) {
                             System.out.println("smile ssn identifier Value: " + patient.getIdentifier().get(l).getValue());
@@ -515,10 +519,10 @@ public class utils {
 
 
                 if (urlValue.equals("maritalStatus")) {
-                    ObjectMapper objectMapper1 = new ObjectMapper();
-                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
+//                    ObjectMapper objectMapper1 = new ObjectMapper();
+//                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
-                    patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(jsonNode));
+                    patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getMaritalStatus().getCoding().size(); l++) {
                         if (patient.getMaritalStatus().getCoding().get(l).getDisplay() != null) {
                             System.out.println("smile maritalStatus display Value: " + patient.getMaritalStatus().getCoding().get(l).getDisplay());
@@ -538,10 +542,10 @@ public class utils {
 
 
                 if (urlValue.equals("language")) {
-                    ObjectMapper objectMapper1 = new ObjectMapper();
-                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
+//                    ObjectMapper objectMapper1 = new ObjectMapper();
+//                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
-                    patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(jsonNode));
+                    patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getCommunication().get(l).getLanguage().getCoding().size(); l++) {
                         if (patient.getCommunication().get(l).getLanguage().getCoding().get(l).getDisplay() != null) {
                             System.out.println("smile language display Value: " + patient.getCommunication().get(l).getLanguage().getCoding().get(l).getDisplay());
@@ -563,10 +567,10 @@ public class utils {
             }
             else if (resource.equalsIgnoreCase("procedure")) {
                 if (urlValue.equals("dataSource")) {
-                    ObjectMapper objectMapper1 = new ObjectMapper();
-                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
+//                    ObjectMapper objectMapper1 = new ObjectMapper();
+//                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
-                    procedure = parser.parseResource(Procedure.class, objectMapper.writeValueAsString(jsonNode));
+                    procedure = parser.parseResource(Procedure.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < procedure.getIdentifier().size(); l++) {
                         if (procedure.getIdentifier().get(l).getSystem().equalsIgnoreCase("data_source")) {
                             System.out.println("data source Value: " + procedure.getIdentifier().get(l).getValue());
@@ -577,20 +581,46 @@ public class utils {
                     System.out.println("dataSourceValue: " + dataSourceValue);
                     Assert.assertEquals(azureEXtensionValueString, dataSourceValue);
                 }
-                if (urlValue.equals("dataSource")) {
-                    ObjectMapper objectMapper1 = new ObjectMapper();
-                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
+                if (urlValue.equals("category")) {
+//                    ObjectMapper objectMapper1 = new ObjectMapper();
+//                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
-                    procedure = parser.parseResource(Procedure.class, objectMapper.writeValueAsString(jsonNode));
-                    for (int l = 0; l < procedure.getIdentifier().size(); l++) {
-                        if (procedure.getIdentifier().get(l).getSystem().equalsIgnoreCase("data_source")) {
-                            System.out.println("data source Value: " + procedure.getIdentifier().get(l).getValue());
-                            dataSourceValue = procedure.getIdentifier().get(l).getValue().toLowerCase();
+                    procedure = parser.parseResource(Procedure.class, objectMapper.writeValueAsString(smileJsonNode));
+                    for (int l = 0; l < procedure.getCategory().getCoding().size(); l++) {
+                        if (procedure.getCategory().getCoding().get(l).getDisplay()!=null) {
+                            System.out.println("category Value: " + procedure.getCategory().getCoding().get(l).getDisplay());
+                            categoryValue = procedure.getCategory().getCoding().get(l).getDisplay().toLowerCase();
+                            break;
+                        } else if (procedure.getCategory().getText()!=null) {
+                            categoryValue = procedure.getCategory().getText().toLowerCase();
+                            break;
+                        } else if (procedure.getCategory().getCoding().get(l).getCode()!=null) {
+                            categoryValue = procedure.getCategory().getCoding().get(l).getCode().toLowerCase();
                             break;
                         }
                     }
-                    System.out.println("dataSourceValue: " + dataSourceValue);
-                    Assert.assertEquals(azureEXtensionValueString, dataSourceValue);
+                    System.out.println("categoryValue: " + categoryValue);
+                    Assert.assertEquals(azureEXtensionValueString, categoryValue);
+                }
+
+
+                if (urlValue.equals("procedureName")) {
+//                    ObjectMapper objectMapper1 = new ObjectMapper();
+//                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
+                    IParser parser = FhirContext.forR4().newJsonParser();
+                    procedure = parser.parseResource(Procedure.class, objectMapper.writeValueAsString(smileJsonNode));
+                    for (int l = 0; l < procedure.getCode().getCoding().size(); l++) {
+                        if (procedure.getCode().getCoding().get(l).getDisplay()!=null) {
+                            System.out.println("procedure name Value: " + procedure.getCode().getCoding().get(l).getDisplay());
+                            procedureNameValue = procedure.getCode().getCoding().get(l).getDisplay().toLowerCase();
+                            break;
+                        } else if (procedure.getCode().getText()!=null) {
+                            procedureNameValue = procedure.getCode().getText().toLowerCase();
+                            break;
+                        }
+                    }
+                    System.out.println("procedureNameValue: " + procedureNameValue);
+                    Assert.assertEquals(azureEXtensionValueString, procedureNameValue);
                 }
 
 

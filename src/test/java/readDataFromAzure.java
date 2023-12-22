@@ -39,7 +39,7 @@ public class readDataFromAzure extends utils {
             //Reading patient data from azure
             azureResponse= readDataFromAzure(azureID);
             verifyElement(i, azureResponse, smileResponse);
-            readExtensionAndCompare(i, azureResponse, smileResponse, "Procedure", "da");
+            readExtensionAndCompare(i, azureResponse, smileResponse, "Patient", "maritalStatus");
 
             //Writing response to a file
 //        writeToFile(getGlobalValue("azureOutput"),response.asString());
