@@ -18,7 +18,8 @@ public class readDataFromAzure extends utils {
         int count = getCount(jsonTemplate);
         System.out.println("count: " +getCount(jsonTemplate) );
 
-        for(int i = 0; i< 2; i++){
+
+        for(int i = 0; i< 1; i++){
 
             //Retrieving smileID and resourceType for each record
             String smileID= smileData.get(i).get("id").toString();
@@ -33,14 +34,16 @@ public class readDataFromAzure extends utils {
             String sourceReference= "Patient/26127256";
 
             //Fetch the corresponding azure ID From DB
-        String azureID= getIDFromDB(sourceReference);
-        System.out.println(azureID);
+            String azureID= getIDFromDB(sourceReference);
+            System.out.println(azureID);
 
-        //Reading patient data from azure
-        azureResponse= readDataFromAzure(azureID);
+
+            //Reading patient data from azure
+            azureResponse= readDataFromAzure(azureID);
             verifyElement(i, azureResponse, smileResponse);
+            readExtensionAndCompare(i, azureResponse, smileResponse, "Patient", "maritalStatus");
 
-        //Writing response to a file
+            //Writing response to a file
 //        writeToFile(getGlobalValue("azureOutput"),response.asString());
         }
 
