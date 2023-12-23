@@ -202,12 +202,7 @@ public class utils {
 
         //Fetch access token
         String accessToken = getJsonPath(response, "access_token");
-        return response;
 
-    }
-
-    public static Response readDataFromSmile(String resourceName,String smileID) throws IOException {
-        //Read data from azure using the token
         response = given().spec(new RequestSpecBuilder().setBaseUri(getGlobalValue("azureBaseUrl")).
                         setContentType(ContentType.JSON).build()).
 
@@ -218,6 +213,7 @@ public class utils {
         return response;
 
     }
+
 
     public static Response readDataFromSmile(String resourceName, String smileID) throws IOException {
         //Read data from azure using the token
@@ -592,20 +588,36 @@ public class utils {
 //                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
                     procedure = parser.parseResource(Procedure.class, objectMapper.writeValueAsString(smileJsonNode));
+
+                    //fetching data from code-able concept( "category.coding.display","category.text","category.coding.code")
                     for (int l = 0; l < procedure.getCategory().getCoding().size(); l++) {
-                        if (procedure.getCategory().getCoding().get(l).getDisplay()!=null) {
-                            System.out.println("category Value: " + procedure.getCategory().getCoding().get(l).getDisplay());
-                            categoryValue = procedure.getCategory().getCoding().get(l).getDisplay().toLowerCase();
-                            break;
-                        } else if (procedure.getCategory().getText()!=null) {
-                            categoryValue = procedure.getCategory().getText().toLowerCase();
-                            break;
-                        } else if (procedure.getCategory().getCoding().get(l).getCode()!=null) {
-                            categoryValue = procedure.getCategory().getCoding().get(l).getCode().toLowerCase();
+//                        if (procedure.getCategory().getCoding().get(l).getDisplay()!=null) {
+                            for (l = 0; l < procedure.getCategory().getCoding().size(); l++) {
+                                if (procedure.getCategory().getCoding().get(l).getDisplay() != null) {
+                                    categoryValue = procedure.getCategory().getCoding().get(l).getDisplay().toLowerCase();
+                                    break;
+                                }
+                            }
+//                            break;
+//                        }
+                        if (procedure.getCategory().getCoding().get(l).getDisplay()==null&&procedure.getCategory().getText()!=null) {
+                            categoryValue =procedure.getCategory().getText();
                             break;
                         }
+                        if (procedure.getCategory().getCoding().get(l).getDisplay()==null && procedure.getCategory().getText()==null) {
+                            for (l = 0; l < procedure.getCategory().getCoding().size(); l++) {
+                                if (procedure.getCategory().getCoding().get(l).getCode() != null) {
+                                    categoryValue = procedure.getCategory().getCoding().get(l).getCode().toLowerCase();
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+
+
                     }
                     System.out.println("categoryValue: " + categoryValue);
+                    categoryValue = categoryValue.replaceAll("[^a-zA-Z0-9:]", "").toLowerCase();
                     Assert.assertEquals(azureEXtensionValueString, categoryValue);
                 }
 
@@ -614,7 +626,7 @@ public class utils {
 //                    ObjectMapper objectMapper1 = new ObjectMapper();
 //                    JsonNode jsonNodeName = objectMapper1.readTree(smileResponse.asString());
                     IParser parser = FhirContext.forR4().newJsonParser();
-                    procedure = parser.parseResource(Procedure.class, objectMapper.writeValueAsString(smileJsonNode));
+                        procedure = parser.parseResource(Procedure.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < procedure.getCode().getCoding().size(); l++) {
                         if (procedure.getCode().getCoding().get(l).getDisplay()!=null) {
                             System.out.println("procedure name Value: " + procedure.getCode().getCoding().get(l).getDisplay());
