@@ -31,7 +31,8 @@ public class readDataFromAzure extends utils {
 
             //Creating sourceReference to fetch data from DB
 //            String sourceReference= resourceName+"/"+smileID;
-            String sourceReference= "Patient/26127256";
+//            String sourceReference= "Patient/26127256";
+            String sourceReference= "Procedure/26182328";
 
             //Fetch the corresponding azure ID From DB
             String azureID= getIDFromDB(sourceReference);
@@ -41,7 +42,7 @@ public class readDataFromAzure extends utils {
             //Reading patient data from azure
             azureResponse= readDataFromAzure(azureID);
             verifyElement(i, azureResponse, smileResponse);
-            readExtensionAndCompare(i, azureResponse, smileResponse, "Patient", "maritalStatus");
+            readExtensionAndCompare(i, azureResponse, smileResponse, "Procedure", "category");
 
             //Writing response to a file
 //        writeToFile(getGlobalValue("azureOutput"),response.asString());
