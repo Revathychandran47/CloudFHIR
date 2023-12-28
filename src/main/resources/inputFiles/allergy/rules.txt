@@ -1,0 +1,1 @@
+dataSource,clinicalStatus,verificationStatus,allergyName,substance,reaction,route,startTime,endTime

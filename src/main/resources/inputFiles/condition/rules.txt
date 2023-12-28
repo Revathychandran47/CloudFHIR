@@ -1,0 +1,1 @@
+dataSource,category,clinicalStatus,conditionName,severity,bodySite,startTime,endTime,summary,conditionCodeName

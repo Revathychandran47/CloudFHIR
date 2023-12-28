@@ -1,0 +1,159 @@
+{
+  "resourceType": "Condition",
+  "meta": {
+    "versionId": "11",
+    "lastUpdated": "2023-12-22T06:34:44.179+00:00",
+    "source": "https://fhir.humana.com/documentation/glossary/HumanaDataSource#uJY9Ke17rPSgFj41",
+    "security": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "R",
+        "display": "Restricted"
+      }
+    ],
+    "tag": [
+      {
+        "system": "https://fhir.humana.com/documentation/glossary/lastRefreshedOn",
+        "code": "2021-11-22T08:30:12.810Z"
+      },
+      {
+        "system": "https://www.hl7.org/fhir/patient.html",
+        "code": "Patient/495468784e523958466b6c47546556714963587445773d3d"
+      }
+    ]
+  },
+  "identifier": [
+    {
+      "use": "secondary",
+      "system": "data_source",
+      "value": "Humana"
+    }
+  ],
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "<clinicalStatus_code>",
+        "display": "Active"
+      }
+    ],
+    "text": "<clinicalStatus_text>"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/ValueSet/condition-category",
+          "code": "<category_code>",
+          "display": "<category_display>"
+        }
+      ],
+      "text": "<category_text>"
+    }
+  ],
+  "severity": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "<severity_code>",
+        "display": "<severity_display>"
+      }
+    ],
+    "text": "<severity_text>"
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://icd-9.com",
+        "code": "144008",
+        "display": "<code_display>"
+      }
+    ],
+    "text": "<code_text>"
+  },
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/ValueSet/body-site",
+          "code": "111002",
+          "display": "<bodySite_display>"
+        }
+      ],
+      "text": "bodySiteText"
+    },
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": " 108003"
+        }
+        ],
+      "text": "<bodySite_text>"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/26182318"
+  },
+  "encounter": {
+    "reference": "Encounter/26183038"
+  },
+  "onsetDateTime": "<onsetDateTime>",
+  "onsetPeriod": {
+    "start": "<onsetPeriod_start>",
+    "end": "<onsetPeriod_end>"
+  },
+  "recordedDate": "2023-12-11",
+  "recorder": {
+    "reference": "Patient/26182318",
+    "display": "John ivan"
+  },
+  "asserter": {
+    "reference": "Practitioner/2695174"
+  },
+  "stage": [
+    {
+      "summary": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "786005",
+            "display": "<summary_display>"
+          }
+        ]
+      }
+    },
+    {
+      "summary": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "786005"
+          }
+        ],
+        "text": "<summary_text>"
+      }
+    },
+    {
+      "summary": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "<summary_code>"
+          }
+        ]
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Condition one"
+    },
+    {
+      "text": "First preference"
+    },
+    {
+      "text": "Cloud FMG"
+    }
+  ]
+}

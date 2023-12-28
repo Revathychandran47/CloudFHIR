@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.hl7.fhir.r4.model.Condition;
 import org.hl7.fhir.r4.model.Patient;
 import org.hl7.fhir.r4.model.Procedure;
 import org.json.simple.JSONObject;
@@ -23,11 +24,9 @@ public class dataValidation extends utils{
     static String previousName = "";
     static String ssnValue = "";
     static String dataSourceValue = "";
-    static String categoryValue = "";
-    static String procedureNameValue = "";
-
     static  Patient patient;
     static Procedure procedure;
+    static Condition condition;
     public static void verifyElement(int i, Response azureResponse, Response smileResponse) {
         ArrayList<JSONObject> smileData = getResourceValues("smileOutput");
         JSONObject jsonObj = smileData.get(i);
@@ -289,14 +288,38 @@ public class dataValidation extends utils{
                         Assert.assertEquals(azureExtensionValueString, dataSourceValue);
 
                     }
-
-
             }
-
+                if (urlValue.equalsIgnoreCase("dataSource")) {
+                    IParser parser = FhirContext.forR4().newJsonParser();
+                    if(resourceName.equalsIgnoreCase("procedure")) {
+                        Procedure val;
+                        val = parser.parseResource(Procedure.class, objectMapper.writeValueAsString(smileJsonNode));
+                        for (int l = 0; l < val.getIdentifier().size(); l++) {
+                            if (val.getIdentifier().get(l).getSystem().equalsIgnoreCase("data_source")) {
+                                System.out.println("data source Value: " + val.getIdentifier().get(l).getValue());
+                                dataSourceValue = val.getIdentifier().get(l).getValue().toLowerCase();
+                                break;
+                            }
+                        }
+                    }
+                    else if(resourceName.equalsIgnoreCase("condition")) {
+                        Condition val;
+                        val = parser.parseResource(Condition.class, objectMapper.writeValueAsString(smileJsonNode));
+                        for (int l = 0; l < val.getIdentifier().size(); l++) {
+                            if (val.getIdentifier().get(l).getSystem().equalsIgnoreCase("data_source")) {
+                                System.out.println("data source Value: " + val.getIdentifier().get(l).getValue());
+                                dataSourceValue = val.getIdentifier().get(l).getValue().toLowerCase();
+                                break;
+                            }
+                        }
+                    }
+                    System.out.println("dataSourceValue: " + dataSourceValue);
+                    Assert.assertEquals(azureExtensionValueString, dataSourceValue);
+  }
 
         }
-
     }
+
 
 
 
