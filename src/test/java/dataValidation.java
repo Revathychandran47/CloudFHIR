@@ -4,9 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.hl7.fhir.r4.model.Condition;
-import org.hl7.fhir.r4.model.Patient;
-import org.hl7.fhir.r4.model.Procedure;
+import org.hl7.fhir.r4.model.*;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 import java.util.ArrayList;
@@ -17,16 +15,10 @@ import org.testng.asserts.SoftAssert;
 public class dataValidation extends utils{
     static SoftAssert softAssert = new SoftAssert();
     static String ruleFile;
-    static String fullAddress = "";
-    static String email = "";
-    static String phone = "";
-    static String preferredName = "";
-    static String previousName = "";
-    static String ssnValue = "";
-    static String dataSourceValue = "";
     static  Patient patient;
     static Procedure procedure;
     static Condition condition;
+    static MedicationRequest medicationRequest;
     public static void verifyElement(int i, Response azureResponse, Response smileResponse) {
         ArrayList<JSONObject> smileData = getResourceValues("smileOutput");
         JSONObject jsonObj = smileData.get(i);
@@ -161,6 +153,7 @@ public class dataValidation extends utils{
                 }
                 if (urlValue.equals("address")) {
                     IParser parser = FhirContext.forR4().newJsonParser();
+                    String fullAddress = null;
                     Patient patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getAddress().size(); l++) {
                         if (patient.getAddress().get(l).getUse() != null) {
@@ -193,6 +186,7 @@ public class dataValidation extends utils{
 
                 if (urlValue.equals("email")) {
                     IParser parser = FhirContext.forR4().newJsonParser();
+                    String email= null;
                     Patient patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getTelecom().size(); l++) {
                         if (patient.getTelecom().get(l).getSystem().toString().equalsIgnoreCase("email")) {
@@ -211,6 +205,7 @@ public class dataValidation extends utils{
 
                 if (urlValue.equals("phone")) {
                     IParser parser = FhirContext.forR4().newJsonParser();
+                    String phone = null;
                     patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getTelecom().size(); l++) {
                         if (patient.getTelecom().get(l).getSystem().toString().equalsIgnoreCase("phone")) {
@@ -230,6 +225,7 @@ public class dataValidation extends utils{
 
                 if (urlValue.equals("preferredName")) {
                     IParser parser = FhirContext.forR4().newJsonParser();
+                    String preferredName= null;
                     Patient patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getName().size(); l++) {
                         if (patient.getName().get(l).getUse().toString().equalsIgnoreCase("usual")) {
@@ -246,6 +242,7 @@ public class dataValidation extends utils{
 
                 if (urlValue.equals("previousName")) {
                     IParser parser = FhirContext.forR4().newJsonParser();
+                    String previousName= null;
                     patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getName().size(); l++) {
                         if (patient.getName().get(l).getUse().toString().equalsIgnoreCase("old")) {
@@ -261,6 +258,7 @@ public class dataValidation extends utils{
 
                 if (urlValue.equals("socialSecurityNumber")) {
                     IParser parser = FhirContext.forR4().newJsonParser();
+                    String ssnValue=null;
                     patient = parser.parseResource(Patient.class, objectMapper.writeValueAsString(smileJsonNode));
                     for (int l = 0; l < patient.getIdentifier().size(); l++) {
                         if (patient.getIdentifier().get(l).getSystem().equalsIgnoreCase("http://hl7.org/fhir/sid/us-ssn")) {
@@ -273,24 +271,10 @@ public class dataValidation extends utils{
                     System.out.println("smileSsnValue: " + ssnValue);
                     Assert.assertEquals(azureExtensionValueString, ssnValue);
                 }
-            } else if (resourceName.equalsIgnoreCase("procedure")) {
-                    if (urlValue.equalsIgnoreCase("dataSource")) {
-                        IParser parser = FhirContext.forR4().newJsonParser();
-                        procedure = parser.parseResource(Procedure.class, objectMapper.writeValueAsString(smileJsonNode));
-                        for (int l = 0; l < procedure.getIdentifier().size(); l++) {
-                            if (procedure.getIdentifier().get(l).getSystem().equalsIgnoreCase("data_source")) {
-                                System.out.println("data source Value: " + procedure.getIdentifier().get(l).getValue());
-                                dataSourceValue = procedure.getIdentifier().get(l).getValue().toLowerCase();
-                                break;
-                            }
-                        }
-                        System.out.println("dataSourceValue: " + dataSourceValue);
-                        Assert.assertEquals(azureExtensionValueString, dataSourceValue);
-
-                    }
             }
                 if (urlValue.equalsIgnoreCase("dataSource")) {
                     IParser parser = FhirContext.forR4().newJsonParser();
+                    String dataSourceValue= null;
                     if(resourceName.equalsIgnoreCase("procedure")) {
                         Procedure val;
                         val = parser.parseResource(Procedure.class, objectMapper.writeValueAsString(smileJsonNode));
@@ -313,9 +297,74 @@ public class dataValidation extends utils{
                             }
                         }
                     }
+                    else if(resourceName.equalsIgnoreCase("coverage")) {
+                        Coverage val;
+                        val = parser.parseResource(Coverage.class, objectMapper.writeValueAsString(smileJsonNode));
+                        for (int l = 0; l < val.getIdentifier().size(); l++) {
+                            if (val.getIdentifier().get(l).getSystem().equalsIgnoreCase("data_source")) {
+                                System.out.println("data source Value: " + val.getIdentifier().get(l).getValue());
+                                dataSourceValue = val.getIdentifier().get(l).getValue().toLowerCase();
+                                break;
+                            }
+                        }
+                    }
+                    else if(resourceName.equalsIgnoreCase("medicationRequest")) {
+                        MedicationRequest val;
+                        val = parser.parseResource(MedicationRequest.class, objectMapper.writeValueAsString(smileJsonNode));
+                        for (int l = 0; l < val.getIdentifier().size(); l++) {
+                            if (val.getIdentifier().get(l).getSystem().equalsIgnoreCase("data_source")) {
+                                System.out.println("data source Value: " + val.getIdentifier().get(l).getValue());
+                                dataSourceValue = val.getIdentifier().get(l).getValue().toLowerCase();
+                                break;
+                            }
+                        }
+                    }
                     System.out.println("dataSourceValue: " + dataSourceValue);
                     Assert.assertEquals(azureExtensionValueString, dataSourceValue);
   }
+                else if (resourceName.equalsIgnoreCase("medicationRequest")) {
+                    if (urlValue.equalsIgnoreCase("frequency")) {
+                        IParser parser = FhirContext.forR4().newJsonParser();
+                        int frequencyValue = 0;
+                        medicationRequest = parser.parseResource(MedicationRequest.class, objectMapper.writeValueAsString(smileJsonNode));
+                        for (int l = 0; l < medicationRequest.getDosageInstruction().size(); l++) {
+                                System.out.println("dosage: " + medicationRequest.getDosageInstruction().get(l).getTiming().getRepeat().getFrequency());
+                                frequencyValue = medicationRequest.getDosageInstruction().get(l).getTiming().getRepeat().getFrequency();
+                        }
+                        Assert.assertEquals(azureExtensionValueString, frequencyValue);
+
+                    }
+
+                    if (urlValue.equalsIgnoreCase("time")) {
+                        IParser parser = FhirContext.forR4().newJsonParser();
+                        String timeOfDayValue = null;
+                        medicationRequest = parser.parseResource(MedicationRequest.class, objectMapper.writeValueAsString(smileJsonNode));
+                        for (int l = 0; l < medicationRequest.getDosageInstruction().size(); l++) {
+                            System.out.println("timeOfDay: " + medicationRequest.getDosageInstruction().get(l).getTiming().getRepeat().getTimeOfDay());
+                            timeOfDayValue = medicationRequest.getDosageInstruction().get(l).getTiming().getRepeat().getTimeOfDay().toString();
+                        }
+                        Assert.assertEquals(azureExtensionValueString, timeOfDayValue);
+
+                    }
+                    if (urlValue.equalsIgnoreCase("medicationCodeName")) {
+                        IParser parser = FhirContext.forR4().newJsonParser();
+                        String code,medicationRequestName = null;
+                        medicationRequest = parser.parseResource(MedicationRequest.class, objectMapper.writeValueAsString(smileJsonNode));
+                        for (int l = 0; l < medicationRequest.getMedicationCodeableConcept().getCoding().size(); l++) {
+                             code = medicationRequest.getMedicationCodeableConcept().getCoding().get(l).getCode();
+                            if(medicationRequest.getMedicationCodeableConcept().getCoding().get(l).getDisplay() !=null){
+                                medicationRequestName= medicationRequest.getMedicationCodeableConcept().getCoding().get(l).getDisplay();
+                            }
+                            else{
+                                medicationRequestName= medicationRequest.getMedicationCodeableConcept().getText();
+                            }
+                            System.out.println("medicationCodeName: " + code+"-"+medicationRequestName);
+                            medicationRequestName = code+"-"+medicationRequestName;
+                        }
+                        Assert.assertEquals(azureExtensionValueString, medicationRequestName);
+
+                    }
+                }
 
         }
     }

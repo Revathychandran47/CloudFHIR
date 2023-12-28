@@ -1,18 +1,113 @@
-Request method:	GET
-Request URI:	https://qa-fhir.mpowered-health.com/fhir/DEFAULT/Procedure/26182328
+Request method:	POST
+Request URI:	https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest
 Proxy:			<none>
 Request params:	<none>
 Query params:	<none>
 Form params:	<none>
-Path params:	resourceName=Procedure
-				id=26182328
+Path params:	resourceName=MedicationRequest
 Headers:		Accept=*/*
 				Content-Type=application/json
 Cookies:		<none>
 Multiparts:		<none>
-Body:			<none>
-HTTP/1.1 200 OK
-Date: Wed, 27 Dec 2023 16:20:46 GMT
+Body:
+{
+    "resourceType": "MedicationRequest",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-01-31T09:36:26.694+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
+            }
+        ]
+    },
+    "identifier": [
+        {
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
+        }
+    ],
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": " ",
+                "display": "NovoLog penfill"
+            }
+        ],
+        "text": "NovoLog penfill"
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "authoredOn": "2023-01-01",
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "dosageInstruction": [
+        {
+            "sequence": 1,
+            "text": "Apply to affected areas at 9am daily",
+            "timing": {
+                "repeat": {
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ],
+                    "boundsPeriod": {
+                        "start": "2023-12-01"
+                    }
+                }
+            },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "value": "1",
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
+        }
+    ],
+    "note": [
+        {
+            "text": "sample"
+        },
+        {
+            "text": "sample two"
+        }
+    ]
+}
+HTTP/1.1 201 Created
+Date: Thu, 28 Dec 2023 14:32:45 GMT
 Content-Type: application/fhir+json;charset=utf-8
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -20,10 +115,11 @@ Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
 X-Powered-By: Smile CDR 2022.11.R02 FHIR REST Endpoint (R4) (FHIR Server; FHIR 4.0.1/R4; HAPI FHIR 6.2.2)
-ETag: W/"8"
-X-Request-ID: VgsiJ7XqDZrqOI3k
-Content-Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/Procedure/26182328/_history/8
-Last-Modified: Wed, 27 Dec 2023 15:45:31 GMT
+ETag: W/"1"
+X-Request-ID: cymts9E4gKa2sYCh
+Content-Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773850/_history/1
+Last-Modified: Thu, 28 Dec 2023 14:32:45 GMT
+Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773850/_history/1
 Content-Encoding: gzip
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -34,12 +130,12 @@ Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
 
 {
-    "resourceType": "Procedure",
-    "id": "26182328",
+    "resourceType": "MedicationRequest",
+    "id": "26773850",
     "meta": {
-        "versionId": "8",
-        "lastUpdated": "2023-12-27T15:45:31.150+00:00",
-        "source": "https://fhir.humana.com/documentation/glossary/HumanaDataSource#72yPVii5BFkFnw1R",
+        "versionId": "1",
+        "lastUpdated": "2023-12-28T14:32:45.049+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
         "security": [
             {
                 "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
@@ -49,20 +145,8 @@ X-Frame-Options: DENY
         ],
         "tag": [
             {
-                "system": "https://fhir.humana.com/documentation/glossary/lastRefreshedOn",
-                "code": "2023-12-12T03:31:43.294Z"
-            },
-            {
-                "system": "https://fhir.humana.com/documentation/glossary/lastRefreshedOn",
-                "code": "2023-10-26T03:31:24.674Z"
-            },
-            {
-                "system": "https://fhir.humana.com/documentation/glossary/lastRefreshedOn",
-                "code": "2023-12-11T03:31:20.949Z"
-            },
-            {
-                "system": "https://www.hl7.org/fhir/patient.html",
-                "code": "Patient/495468784e523958466b6c47546556714963587445773d3d"
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
             }
         ]
     },
@@ -70,196 +154,1418 @@ X-Frame-Options: DENY
         {
             "use": "secondary",
             "system": "data_source",
-            "value": "Humana"
+            "value": "Premera"
         }
     ],
-    "status": "preparation",
-    "category": {
+    "status": "active",
+    "medicationCodeableConcept": {
         "coding": [
             {
-                "system": "http://snomed.info/sct",
-                "code": "24642003",
-                "display": "Psychiatry procedure or service"
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "display": "NovoLog penfill"
             }
         ],
-        "text": "Psychiatry procedure or service"
-    },
-    "code": {
-        "coding": [
-            {
-                "system": "http://snomed.info/sct",
-                "code": "26182328",
-                "display": "Removable appliance therapy"
-            }
-        ],
-        "text": "Removable appliance therapy"
+        "text": "NovoLog penfill"
     },
     "subject": {
-        "reference": "Patient/26182318"
+        "reference": "Patient/2520778"
     },
-    "encounter": {
-        "reference": "Encounter/26183038"
+    "authoredOn": "2023-01-01",
+    "requester": {
+        "reference": "Organization/2724154"
     },
-    "performedPeriod": {
-        "start": "2023-07-16",
-        "end": "2023-08-16"
+    "performer": {
+        "reference": "Organization/2724154"
     },
-    "performer": [
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "note": [
         {
-            "actor": {
-                "reference": "Practitioner/2518881",
-                "identifier": {
-                    "system": "http://hl7.org/fhir/sid/us-npi",
-                    "value": "1093794984"
-                },
-                "display": "SHELLEY CLYNE, M.D."
-            }
-        }
-    ],
-    "location": {
-        "reference": "Location/2744209"
-    },
-    "reasonCode": [
-        {
-            "coding": [
-                {
-                    "system": "http://snomed.info/sct",
-                    "code": "404684003",
-                    "display": "Clinical finding (finding)"
-                }
-            ]
+            "text": "sample"
         },
         {
-            "coding": [
-                {
-                    "system": "http://snomed.info/sct",
-                    "code": "134006"
-                }
-            ],
-            "text": "Reason code"
-        },
-        {
-            "coding": [
-                {
-                    "system": "http://hl7.org/fhir/ValueSet/procedure-reason",
-                    "code": "129007"
-                }
-            ]
+            "text": "sample two"
         }
     ],
-    "bodySite": [
+    "dosageInstruction": [
         {
-            "coding": [
-                {
-                    "system": "http://snomed.info/sct",
-                    "code": "106004",
-                    "display": "Posterior"
-                },
-                {
-                    "system": "http://hl7.org/fhir/ValueSet/body-site",
-                    "code": "111002",
-                    "display": "Posterior"
+            "sequence": 1,
+            "text": "Apply to affected areas at 9am daily",
+            "timing": {
+                "repeat": {
+                    "boundsPeriod": {
+                        "start": "2023-12-01"
+                    },
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ]
                 }
-            ]
-        }
-    ],
-    "outcome": {
-        "coding": [
-            {
-                "system": "http://hl7.org/fhir/ValueSet/procedure-outcome",
-                "code": "385669000",
-                "display": "Successful"
             },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "value": 1,
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
+        }
+    ]
+}
+Request method:	POST
+Request URI:	https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	resourceName=MedicationRequest
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "resourceType": "MedicationRequest",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-01-31T09:36:26.694+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
             {
-                "system": "http://snomed.info/sct",
-                "code": "385669000",
-                "display": "Successful"
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
             }
         ]
     },
-    "complication": [
+    "identifier": [
         {
-            "coding": [
-                {
-                    "system": "http://hl7.org/fhir/ValueSet/condition-code",
-                    "code": "144008",
-                    "display": "Normal peripheral vision"
-                },
-                {
-                    "system": "http://snomed.info/sct",
-                    "code": "144008",
-                    "display": "Normal peripheral vision"
-                }
-            ]
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
         }
     ],
-    "followUp": [
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "379750",
+                "display": "NovoLog penfill"
+            }
+        ],
+        "text": " "
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "authoredOn": "2023-01-01",
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "dosageInstruction": [
         {
-            "coding": [
+            "sequence": 1,
+            "text": " ",
+            "timing": {
+                "repeat": {
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ],
+                    "boundsPeriod": {
+                        "start": "2023-12-01"
+                    }
+                }
+            },
+            "doseAndRate": [
                 {
-                    "system": "http://hl7.org/fhir/ValueSet/procedure-followup",
-                    "code": "18949003",
-                    "display": "Change of dressing"
-                },
-                {
-                    "system": "http://snomed.info/sct",
-                    "code": "18949003",
-                    "display": "Change of dressing"
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "value": " ",
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
                 }
             ]
         }
     ],
     "note": [
         {
-            "text": "Procedure data"
+            "text": "sample"
         },
         {
-            "text": "Sample data"
+            "text": "sample two"
+        }
+    ]
+}
+HTTP/1.1 201 Created
+Date: Thu, 28 Dec 2023 14:32:46 GMT
+Content-Type: application/fhir+json;charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Powered-By: Smile CDR 2022.11.R02 FHIR REST Endpoint (R4) (FHIR Server; FHIR 4.0.1/R4; HAPI FHIR 6.2.2)
+ETag: W/"1"
+X-Request-ID: TTaXUKTxURSbIPgD
+Content-Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773851/_history/1
+Last-Modified: Thu, 28 Dec 2023 14:32:46 GMT
+Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773851/_history/1
+Content-Encoding: gzip
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+
+{
+    "resourceType": "MedicationRequest",
+    "id": "26773851",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-12-28T14:32:46.598+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
+            }
+        ]
+    },
+    "identifier": [
+        {
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
+        }
+    ],
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "379750",
+                "display": "NovoLog penfill"
+            }
+        ]
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "authoredOn": "2023-01-01",
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "note": [
+        {
+            "text": "sample"
         },
         {
-            "text": "Procedure"
+            "text": "sample two"
+        }
+    ],
+    "dosageInstruction": [
+        {
+            "sequence": 1,
+            "timing": {
+                "repeat": {
+                    "boundsPeriod": {
+                        "start": "2023-12-01"
+                    },
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ]
+                }
+            },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
         }
     ]
 }
 Request method:	POST
-Request URI:	https://login.microsoftonline.com/d3bd044e-5719-4125-8fc0-732ef8c5a28c/oauth2/token
+Request URI:	https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest
 Proxy:			<none>
 Request params:	<none>
 Query params:	<none>
-Form params:	grant_type=Client_Credentials
-				client_id=81848d30-b606-4183-9e7f-4622ccfb6796
-				client_secret=B6F8Q~9oG~i9LQwbkvbcksoqaFf9_iMjMoVS4c2A
-				resource=https://cloudfhir-cloudfhirservice.fhir.azurehealthcareapis.com
-				scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
-Path params:	<none>
+Form params:	<none>
+Path params:	resourceName=MedicationRequest
 Headers:		Accept=*/*
-				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+				Content-Type=application/json
 Cookies:		<none>
 Multiparts:		<none>
-Body:			<none>
-HTTP/1.1 200 OK
-Cache-Control: no-store, no-cache
-Pragma: no-cache
-Content-Type: application/json; charset=utf-8
-Expires: -1
-Strict-Transport-Security: max-age=31536000; includeSubDomains
+Body:
+{
+    "resourceType": "MedicationRequest",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-01-31T09:36:26.694+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
+            }
+        ]
+    },
+    "identifier": [
+        {
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
+        }
+    ],
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "379750",
+                "display": " "
+            }
+        ],
+        "text": "NovoLog penfill"
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "authoredOn": " ",
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "dosageInstruction": [
+        {
+            "sequence": 1,
+            "text": "Apply to affected areas at 9am daily",
+            "timing": {
+                "repeat": {
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ],
+                    "boundsPeriod": {
+                        "start": " "
+                    }
+                }
+            },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "value": "1",
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
+        }
+    ],
+    "note": [
+        {
+            "text": "sample"
+        },
+        {
+            "text": "sample two"
+        }
+    ]
+}
+HTTP/1.1 201 Created
+Date: Thu, 28 Dec 2023 14:32:47 GMT
+Content-Type: application/fhir+json;charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Powered-By: Smile CDR 2022.11.R02 FHIR REST Endpoint (R4) (FHIR Server; FHIR 4.0.1/R4; HAPI FHIR 6.2.2)
+ETag: W/"1"
+X-Request-ID: eQkXxYRX41SWQj0G
+Content-Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773852/_history/1
+Last-Modified: Thu, 28 Dec 2023 14:32:47 GMT
+Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773852/_history/1
+Content-Encoding: gzip
 X-Content-Type-Options: nosniff
-P3P: CP="DSP CUR OTPi IND OTRi ONL FIN"
-x-ms-request-id: 3790f580-0dcd-476a-97e7-7bed8baae101
-x-ms-ests-server: 2.1.16942.4 - SCUS ProdSlices
-X-XSS-Protection: 0
-Set-Cookie: fpc=AlnaW6M5J-NCrl87AJVsSpIsUWn0AQAAAN5FHt0OAAAA; expires=Fri, 26-Jan-2024 16:20:47 GMT; path=/; secure; HttpOnly; SameSite=None
-Set-Cookie: x-ms-gateway-slice=estsfd; path=/; secure; samesite=none; httponly
-Set-Cookie: stsservicecookie=estsfd; path=/; secure; samesite=none; httponly
-Date: Wed, 27 Dec 2023 16:20:47 GMT
-Content-Length: 1560
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
 
 {
-    "token_type": "Bearer",
-    "expires_in": "3599",
-    "ext_expires_in": "3599",
-    "expires_on": "1703697646",
-    "not_before": "1703693746",
-    "resource": "https://cloudfhir-cloudfhirservice.fhir.azurehealthcareapis.com",
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjVCM25SeHRRN2ppOGVORGMzRnkwNUtmOTdaRSIsImtpZCI6IjVCM25SeHRRN2ppOGVORGMzRnkwNUtmOTdaRSJ9.eyJhdWQiOiJodHRwczovL2Nsb3VkZmhpci1jbG91ZGZoaXJzZXJ2aWNlLmZoaXIuYXp1cmVoZWFsdGhjYXJlYXBpcy5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kM2JkMDQ0ZS01NzE5LTQxMjUtOGZjMC03MzJlZjhjNWEyOGMvIiwiaWF0IjoxNzAzNjkzNzQ2LCJuYmYiOjE3MDM2OTM3NDYsImV4cCI6MTcwMzY5NzY0NiwiYWlvIjoiRTJWZ1lMaHpJTkNvVDhOQ2RmM2R5Z1hhSlJwT0FBPT0iLCJhcHBpZCI6IjgxODQ4ZDMwLWI2MDYtNDE4My05ZTdmLTQ2MjJjY2ZiNjc5NiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2QzYmQwNDRlLTU3MTktNDEyNS04ZmMwLTczMmVmOGM1YTI4Yy8iLCJvaWQiOiI1MjliYTE0Yi0wNzNhLTQzODEtOWZmMi04MzNkZmNlNzNhOWIiLCJyaCI6IjAuQWJjQVRnUzkweGxYSlVHUHdITXUtTVdpak5oNFowX3ZXdHhEb2Ytd2MzSkxsSlczQUFBLiIsInJvbGVzIjpbInN5c3RlbS5hbGwucmVhZCIsInN5c3RlbS5hbGwuYWxsIl0sInN1YiI6IjUyOWJhMTRiLTA3M2EtNDM4MS05ZmYyLTgzM2RmY2U3M2E5YiIsInRpZCI6ImQzYmQwNDRlLTU3MTktNDEyNS04ZmMwLTczMmVmOGM1YTI4YyIsInV0aSI6ImdQV1FOODBOYWtlWDUzdnRpNnJoQVEiLCJ2ZXIiOiIxLjAifQ.RHlOlTZU_-wwbxNkeK61i_iGQ45HYonJsQbk8ZMVSv5HBzZ7a4pBn1FL25DxOzsG5NdfvQZA7QR8BuO1DEAL0u98I5kqJrHPq-WjRyea-TZYmVHIciv_fPKd74iliFpcb0QNzksgXjfAlec4_sDLetEmfi7HV-OEwqvdlmwEd7GR8hOXujBzhD3PoFz6L4LhFI6VWoLvZDuIBGFRHfHznz2TmlOJjIfk4ej8BwM_F6amVbbdQ6yViZjWHuchkcpSQJNRegajIKlmcG_mVAuI0wdBaEfMUm6L7EjBP1X42gpD6h82cNNGxPI4aO9Sim39z9m1AgCAl1Lh9ThDhAUW8A"
+    "resourceType": "MedicationRequest",
+    "id": "26773852",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-12-28T14:32:47.734+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
+            }
+        ]
+    },
+    "identifier": [
+        {
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
+        }
+    ],
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "379750"
+            }
+        ],
+        "text": "NovoLog penfill"
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "note": [
+        {
+            "text": "sample"
+        },
+        {
+            "text": "sample two"
+        }
+    ],
+    "dosageInstruction": [
+        {
+            "sequence": 1,
+            "text": "Apply to affected areas at 9am daily",
+            "timing": {
+                "repeat": {
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ]
+                }
+            },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "value": 1,
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
+        }
+    ]
+}
+Request method:	POST
+Request URI:	https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	resourceName=MedicationRequest
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "resourceType": "MedicationRequest",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-01-31T09:36:26.694+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
+            }
+        ]
+    },
+    "identifier": [
+        {
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
+        }
+    ],
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": " ",
+                "display": "NovoLog penfill"
+            }
+        ],
+        "text": " "
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "authoredOn": " ",
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "dosageInstruction": [
+        {
+            "sequence": 1,
+            "text": "Apply to affected areas at 9am daily",
+            "timing": {
+                "repeat": {
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ],
+                    "boundsPeriod": {
+                        "start": "2023-12-01"
+                    }
+                }
+            },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "value": " ",
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
+        }
+    ],
+    "note": [
+        {
+            "text": "sample"
+        },
+        {
+            "text": "sample two"
+        }
+    ]
+}
+HTTP/1.1 201 Created
+Date: Thu, 28 Dec 2023 14:32:49 GMT
+Content-Type: application/fhir+json;charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Powered-By: Smile CDR 2022.11.R02 FHIR REST Endpoint (R4) (FHIR Server; FHIR 4.0.1/R4; HAPI FHIR 6.2.2)
+ETag: W/"1"
+X-Request-ID: DxfZtgqcXfesFR7S
+Content-Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773853/_history/1
+Last-Modified: Thu, 28 Dec 2023 14:32:49 GMT
+Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773853/_history/1
+Content-Encoding: gzip
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+
+{
+    "resourceType": "MedicationRequest",
+    "id": "26773853",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-12-28T14:32:49.038+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
+            }
+        ]
+    },
+    "identifier": [
+        {
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
+        }
+    ],
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "display": "NovoLog penfill"
+            }
+        ]
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "note": [
+        {
+            "text": "sample"
+        },
+        {
+            "text": "sample two"
+        }
+    ],
+    "dosageInstruction": [
+        {
+            "sequence": 1,
+            "text": "Apply to affected areas at 9am daily",
+            "timing": {
+                "repeat": {
+                    "boundsPeriod": {
+                        "start": "2023-12-01"
+                    },
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ]
+                }
+            },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
+        }
+    ]
+}
+Request method:	POST
+Request URI:	https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	resourceName=MedicationRequest
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "resourceType": "MedicationRequest",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-01-31T09:36:26.694+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
+            }
+        ]
+    },
+    "identifier": [
+        {
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
+        }
+    ],
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": " ",
+                "display": " "
+            }
+        ],
+        "text": "NovoLog penfill"
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "authoredOn": "2023-01-01",
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "dosageInstruction": [
+        {
+            "sequence": 1,
+            "text": " ",
+            "timing": {
+                "repeat": {
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ],
+                    "boundsPeriod": {
+                        "start": " "
+                    }
+                }
+            },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "value": "1",
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
+        }
+    ],
+    "note": [
+        {
+            "text": "sample"
+        },
+        {
+            "text": "sample two"
+        }
+    ]
+}
+HTTP/1.1 201 Created
+Date: Thu, 28 Dec 2023 14:32:50 GMT
+Content-Type: application/fhir+json;charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Powered-By: Smile CDR 2022.11.R02 FHIR REST Endpoint (R4) (FHIR Server; FHIR 4.0.1/R4; HAPI FHIR 6.2.2)
+ETag: W/"1"
+X-Request-ID: e9SjT3Mpr85j4fS7
+Content-Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773854/_history/1
+Last-Modified: Thu, 28 Dec 2023 14:32:50 GMT
+Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773854/_history/1
+Content-Encoding: gzip
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+
+{
+    "resourceType": "MedicationRequest",
+    "id": "26773854",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-12-28T14:32:50.423+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
+            }
+        ]
+    },
+    "identifier": [
+        {
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
+        }
+    ],
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm"
+            }
+        ],
+        "text": "NovoLog penfill"
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "authoredOn": "2023-01-01",
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "note": [
+        {
+            "text": "sample"
+        },
+        {
+            "text": "sample two"
+        }
+    ],
+    "dosageInstruction": [
+        {
+            "sequence": 1,
+            "timing": {
+                "repeat": {
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ]
+                }
+            },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "value": 1,
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
+        }
+    ]
+}
+Request method:	POST
+Request URI:	https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	resourceName=MedicationRequest
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "resourceType": "MedicationRequest",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-01-31T09:36:26.694+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
+            }
+        ]
+    },
+    "identifier": [
+        {
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
+        }
+    ],
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": " ",
+                "display": "NovoLog penfill"
+            }
+        ],
+        "text": " "
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "authoredOn": "2023-01-01",
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "dosageInstruction": [
+        {
+            "sequence": 1,
+            "text": " ",
+            "timing": {
+                "repeat": {
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ],
+                    "boundsPeriod": {
+                        "start": "2023-12-01"
+                    }
+                }
+            },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "value": " ",
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
+        }
+    ],
+    "note": [
+        {
+            "text": "sample"
+        },
+        {
+            "text": "sample two"
+        }
+    ]
+}
+HTTP/1.1 201 Created
+Date: Thu, 28 Dec 2023 14:32:51 GMT
+Content-Type: application/fhir+json;charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Powered-By: Smile CDR 2022.11.R02 FHIR REST Endpoint (R4) (FHIR Server; FHIR 4.0.1/R4; HAPI FHIR 6.2.2)
+ETag: W/"1"
+X-Request-ID: J1ehjq2K8jjuQmbp
+Content-Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773855/_history/1
+Last-Modified: Thu, 28 Dec 2023 14:32:51 GMT
+Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773855/_history/1
+Content-Encoding: gzip
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+
+{
+    "resourceType": "MedicationRequest",
+    "id": "26773855",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-12-28T14:32:51.711+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
+            }
+        ]
+    },
+    "identifier": [
+        {
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
+        }
+    ],
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "display": "NovoLog penfill"
+            }
+        ]
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "authoredOn": "2023-01-01",
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "note": [
+        {
+            "text": "sample"
+        },
+        {
+            "text": "sample two"
+        }
+    ],
+    "dosageInstruction": [
+        {
+            "sequence": 1,
+            "timing": {
+                "repeat": {
+                    "boundsPeriod": {
+                        "start": "2023-12-01"
+                    },
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ]
+                }
+            },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
+        }
+    ]
+}
+Request method:	POST
+Request URI:	https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	resourceName=MedicationRequest
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "resourceType": "MedicationRequest",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-01-31T09:36:26.694+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
+            }
+        ]
+    },
+    "identifier": [
+        {
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
+        }
+    ],
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "379750",
+                "display": " "
+            }
+        ],
+        "text": "NovoLog penfill"
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "authoredOn": "2023-01-01",
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "dosageInstruction": [
+        {
+            "sequence": 1,
+            "text": " ",
+            "timing": {
+                "repeat": {
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ],
+                    "boundsPeriod": {
+                        "start": "2023-12-01"
+                    }
+                }
+            },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "value": "1",
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
+        }
+    ],
+    "note": [
+        {
+            "text": "sample"
+        },
+        {
+            "text": "sample two"
+        }
+    ]
+}
+HTTP/1.1 201 Created
+Date: Thu, 28 Dec 2023 14:32:53 GMT
+Content-Type: application/fhir+json;charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Powered-By: Smile CDR 2022.11.R02 FHIR REST Endpoint (R4) (FHIR Server; FHIR 4.0.1/R4; HAPI FHIR 6.2.2)
+ETag: W/"1"
+X-Request-ID: cuILMSAMmwWxn0D9
+Content-Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773856/_history/1
+Last-Modified: Thu, 28 Dec 2023 14:32:53 GMT
+Location: https://qa-fhir.mpowered-health.com/fhir/DEFAULT/MedicationRequest/26773856/_history/1
+Content-Encoding: gzip
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+
+{
+    "resourceType": "MedicationRequest",
+    "id": "26773856",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2023-12-28T14:32:53.033+00:00",
+        "source": "file://Zeomega_MedicationRequest_25_1.ndjson#DyXgwYQIn4olUiLb",
+        "security": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "R",
+                "display": "Restricted"
+            }
+        ],
+        "tag": [
+            {
+                "system": "http://opala.com/fhir/env",
+                "code": "PROD"
+            }
+        ]
+    },
+    "identifier": [
+        {
+            "use": "secondary",
+            "system": "data_source",
+            "value": "Premera"
+        }
+    ],
+    "status": "active",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "379750"
+            }
+        ],
+        "text": "NovoLog penfill"
+    },
+    "subject": {
+        "reference": "Patient/2520778"
+    },
+    "authoredOn": "2023-01-01",
+    "requester": {
+        "reference": "Organization/2724154"
+    },
+    "performer": {
+        "reference": "Organization/2724154"
+    },
+    "recorder": {
+        "reference": "Practitioner/2695174"
+    },
+    "note": [
+        {
+            "text": "sample"
+        },
+        {
+            "text": "sample two"
+        }
+    ],
+    "dosageInstruction": [
+        {
+            "sequence": 1,
+            "timing": {
+                "repeat": {
+                    "boundsPeriod": {
+                        "start": "2023-12-01"
+                    },
+                    "frequency": 2,
+                    "timeOfDay": [
+                        "05:10:55.425+00:00"
+                    ]
+                }
+            },
+            "doseAndRate": [
+                {
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                "code": "ordered",
+                                "display": "Ordered"
+                            }
+                        ]
+                    },
+                    "doseQuantity": {
+                        "value": 1,
+                        "unit": "ea",
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                        "code": "OINT"
+                    }
+                }
+            ]
+        }
+    ]
 }

@@ -1,0 +1,9 @@
+no,<code>,<display>,<text>,<authoredOn>,<dosage_text>,<startDate>,<dosage_doseQuantity>,expectedValues
+1,null,NovoLog penfill,NovoLog penfill,2023-01-01,Apply to affected areas at 9am daily,2023-12-01,1,"name:NovoLog penfill,startDate:2023-01-01,dosage:1"
+2,379750,NovoLog penfill,null,2023-01-01,null,2023-12-01,null,"code:379750,name:NovoLog penfill,startDate:2023-01-01"
+3,379750,null,NovoLog penfill,null,Apply to affected areas at 9am daily,null,1,"code:379750,name:NovoLog penfill,dosage:1"
+4,null,NovoLog penfill,null,null,Apply to affected areas at 9am daily,2023-12-01,null,"name:NovoLog penfill,dosage:Apply to affected areas at 9am daily,startDate:2023-12-01"
+5,null,null,NovoLog penfill,2023-01-01,null,null,1,"name:NovoLog penfill,startDate:2023-01-01,dosage:1"
+6,null,NovoLog penfill,null,2023-01-01,null,2023-12-01,null,"name:NovoLog penfill,startDate:2023-01-01"
+7,379750,null,NovoLog penfill,2023-01-01,null,2023-12-01,1,"code:379750,name:NovoLog penfill,startDate:2023-12-01,dosage:1"
+8,379750,null,null,2023-01-01,Apply to affected areas at 9am daily,null,1,"code:379750,name:379750,startDate:2023-01-01,dosage:1"

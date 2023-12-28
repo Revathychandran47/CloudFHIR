@@ -20,21 +20,20 @@ public class createDataInSmile extends utils {
             String payloadGenerated = generateData(jsonTemplate,i);
 
             //Inserting generated payload into smileCDR
-//            Response response = insertDataIntoSmile(payloadGenerated,getGlobalValue("resource"));
-//
-//            //Sample assertion
-//            String resourceID = getJsonPath(response, "id");
-//            System.out.println(getGlobalValue("resource")+" id is "+ resourceID);
-//
-//            //Writing response to a file
-//            writeToFile(getGlobalValue("smileOutput"),"id: "+i+",json:"+response.asString());
+            Response response = insertDataIntoSmile(payloadGenerated,getGlobalValue("resource"));
+
+            //Sample assertion
+            String resourceID = getJsonPath(response, "id");
+            System.out.println(getGlobalValue("resource")+" id is "+ resourceID);
+
+            //Writing response to a file
+            writeToFile(getGlobalValue("smileOutput"),"id: "+i+",json:"+response.asString());
         }
     }
 
     public static String generateData(String jsonTemplate, int index) throws Exception {
         String jSON = FileUtils.readFileToString(new File(jsonTemplate));
         jSON = updateJson(jSON,index);
-        System.out.println(jSON);
         return jSON;
     }
 

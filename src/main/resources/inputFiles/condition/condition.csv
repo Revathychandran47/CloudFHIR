@@ -1,1 +1,140 @@
 no,<clinicalStatus_code>,<clinicalStatus_text>,<category_code>,<category_display>,<category_text>,<severity_code>,<severity_display>,<severity_text>,<code_display>,<code_text>,<bodySite_display>,<bodySite_text>,<onsetDateTime>,<onsetPeriod_start>,<onsetPeriod_end>,<summary_display>,<summary_text>,<summary_code>,expectedValues
+1,active,Active,null,null,Encounter diagnosis,24484000,null,Severe,Normal peripheral vision,null,null,Posterior carpal region,null,null,2023-12-30,Clinical stage,null,null,"clinicalStatus:active,category:Encounter diagnosis,Severity:24484000,conditionName:Normal peripheral vision,bodySite:Posterior carpal region,end:2023-12-30,summary:Clinical stage"
+2,active,null,encounter-diagnosis,Encounter Diagnosis,null,null,Severe,null,null,Normal peripheral vision,Posterior carpal region,null,null,2023-12-01,null,null,Clinical stage,786007,"clinicalStatus:active,category:Encounter diagnosis,Severity:24484000,conditionName:Normal peripheral vision,bodySite:Posterior carpal region,start:2023-12-01,summary:Clinical stage"
+3,null,Active,encounter-diagnosis,null,null,24484000,Severe,null,null,Normal peripheral vision,Posterior carpal region,null,null,null,2023-12-30,Clinical stage,null,null,"clinicalStatus:active,category:Encounter diagnosis,Severity:Severe,conditionName:Normal peripheral vision,bodySite:Posterior carpal region,end:2023-12-30,summary:Clinical stage"
+4,null,null,null,Encounter Diagnosis,Encounter diagnosis,null,null,Severe,Normal peripheral vision,null,null,Posterior carpal region,2023-01-01,null,null,null,Clinical stage,786007,"category:Encounter diagnosis,Severity:Severe,conditionName:Normal peripheral vision,bodySite:Posterior carpal region,onsetDateTime:2023-01-01,summary:Clinical stage"
+5,null,Active,encounter-diagnosis,null,null,24484000,Severe,null,null,Normal peripheral vision,Posterior carpal region,null,null,2023-12-01,2023-12-30,null,null,null,"clinicalStatus:active,category:Encounter diagnosis,Severity:Severe,conditionName:Normal peripheral vision,bodySite:Posterior carpal region,start:2023-12-01,end:2023-12-30"
+6,active,null,null,Encounter Diagnosis,Encounter diagnosis,null,null,Severe,Normal peripheral vision,null,null,Posterior carpal region,2023-01-01,null,null,null,Clinical stage,786007,"clinicalStatus:active,category:Encounter diagnosis,Severity:Severe,conditionName:Normal peripheral vision,bodySite:Posterior carpal region,onsetDate:2023-01-01,summary:Clinical stage"
+7,active,Active,encounter-diagnosis,null,null,24484000,Severe,null,null,Normal peripheral vision,Posterior carpal region,null,null,null,2023-12-30,Clinical stage,null,null,"clinicalStatus:active,category:Encounter diagnosis,Severity:Severe,conditionName:Normal peripheral vision,bodySite:Posterior carpal region,end:2023-12-30,summary:Clinical stage"
+8,active,null,null,Encounter Diagnosis,Encounter diagnosis,null,null,Severe,Normal peripheral vision,null,null,null,2023-01-01,2023-12-01,null,null,Clinical stage,786007,"clinicalStatus:active,category:Encounter diagnosis,Severity:Severe,conditionName:Normal peripheral vision,onSetDateTime:2023-01-01,start:2023-12-01,summary:Clinical stage"
+9,active,Active,encounter-diagnosis,null,null,24484000,Severe,null,null,null,Posterior carpal region,Posterior carpal region,null,null,2023-12-30,Clinical stage,null,null,"clinicalStatus:active,category:Encounter diagnosis,Severity:Severe,end:2023-12-30,summary:Clinical stage"
+10,active,null,null,Encounter Diagnosis,Encounter diagnosis,null,null,null,Normal peripheral vision,Normal peripheral vision,null,null,2023-01-01,2023-12-01,null,null,Clinical stage,786007,"clinicalStatus:active,category:Encounter diagnosis,conditionName:Normal peripheral vision,onSetDateTime:2023-01-01,start:2023-12-01,summary:Clinical stage"
+11,active,Active,encounter-diagnosis,null,null,null,Severe,Severe,null,null,Posterior carpal region,Posterior carpal region,null,null,2023-12-30,Clinical stage,null,null,"clinicalStatus:active,category:Encounter diagnosis,Severity:Severe,bodySite:Posterior carpal region,end:2023-12-30,summary:Clinical stage"
+12,active,null,null,null,Encounter diagnosis,24484000,null,null,Normal peripheral vision,Normal peripheral vision,null,null,2023-01-01,2023-12-01,null,null,Clinical stage,786007,"clinicalStatus:active,category:Encounter diagnosis,Severity:24484000,conditionName:Normal peripheral vision,bodySite:Posterior carpal region,onsetDateTime:2023-01-01,summary:Clinical stage"
+13,active,null,encounter-diagnosis,Encounter Diagnosis,null,null,Severe,Severe,null,null,Posterior carpal region,Posterior carpal region,null,null,2023-12-30,Clinical stage,null,null,"clinicalStatus:active,category:Encounter diagnosis,Severity:Severe,bodySite:Posterior carpal region,end:2023-12-30,summary:Clinical stage"
+14,active,Active,null,null,Encounter diagnosis,24484000,null,null,Normal peripheral vision,Normal peripheral vision,null,null,2023-01-01,2023-12-01,null,null,null,786007,"clinicalStatus:active,category:Encounter diagnosis,Severity:24484000,conditionName:Normal peripheral vision,onSetDateTime:2023-01-01,start:2023-12-01,summary:Clinical stage"
+15activenullencounter-diagnosisEncounter DiagnosisnullnullSevereSeverenullnullPosterior carpal regionPosterior carpal regionnullnullnullClinical stageClinical stagenull
+16activeActivenullnullEncounter diagnosis24484000nullnullNormal peripheral visionNormal peripheral visionnullnullnull2023-12-012023-12-30nullnull786007
+17activenullencounter-diagnosisEncounter DiagnosisnullnullSevereSeverenullnullnullPosterior carpal region2023-01-01nullnullClinical stageClinical stagenull
+18activeActivenullnullEncounter diagnosis24484000nullnullnullNormal peripheral visionPosterior carpal regionnullnull2023-12-012023-12-30nullnull786007
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
