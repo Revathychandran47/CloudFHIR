@@ -1,0 +1,148 @@
+{
+  "resourceType": "Procedure",
+  "meta": {
+    "versionId": "6",
+    "lastUpdated": "2023-12-22T10:32:41.466+00:00",
+    "source": "https://fhir.humana.com/documentation/glossary/HumanaDataSource#N8cGpSVMHouNTstC",
+    "security": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "R",
+        "display": "Restricted"
+      }
+    ]},
+  "identifier": [
+    {
+      "use": "secondary",
+      "system": "data_source",
+      "value": "Anthem"
+    }
+  ],
+  "status": "preparation",
+  "category": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "<category_code>",
+        "display": "<category_display>"
+      }
+    ],
+    "text": "<category_text>"
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "26182328",
+        "display": "<code_display>"
+      }
+    ],
+    "text": "<code_text>"
+  },
+  "subject": {
+    "reference": "Patient/26182318"
+  },
+  "encounter": {
+    "reference": "Encounter/26183038"
+  },
+  "performedPeriod": {
+    "start": "2023-07-16",
+    "end": "2023-08-16"
+  },
+  "performer": [
+    {
+      "actor": {
+        "reference": "Practitioner/2695174",
+        "display": "SHELLEY CLYNE, M.D."
+      }
+    }
+  ],
+  "location": {
+    "reference": "Location/2744209"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "134006",
+          "display": "<reasonCode_display>"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "134006"
+        }
+      ],
+      "text": "<reasonCode_text>"
+    },
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/ValueSet/procedure-reason",
+          "code": "<reasonCode_code>"
+        }
+      ]
+    }
+  ],
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "<bodySite_code>",
+          "display": "<bodySite_display>"
+        }
+      ],
+      "text": "<bodySite_text>"
+    }
+  ],
+  "outcome": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/ValueSet/procedure-outcome",
+        "code": "<outcome_code>",
+        "display": "<outcome_display>"
+      }
+    ],
+    "text": "<outcome_text>"
+  },
+  "complication": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/ValueSet/condition-code",
+          "code": "<complication_code>",
+          "display": "<complication_display>"
+        }
+      ],
+      "text": "<complication_text>"
+    }
+  ],
+  "followUp": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/ValueSet/procedure-followup",
+          "code": "<followUp_code>",
+          "display": "<followUp_display>"
+        }
+      ],
+      "text": "<followUp_text>"
+    }
+  ],
+  "note": [
+    {
+      "text": "Procedure data"
+    },
+    {
+      "text": "Sample data"
+    },
+    {
+      "text": "Procedure"
+    }
+  ]
+}

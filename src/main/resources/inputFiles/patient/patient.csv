@@ -1,0 +1,5 @@
+no,<maritalStatus_display>,<maritalStatus_text>,<language_display>,<language_text>,expectedValues
+1,null,Married,null,English:English,"maritalStatus:Married,language:English"
+2,Married,null,English,null:English,"maritalStatus:Married,language:English"
+3,Married,Married,null,null:null,"maritalStatus:Married"
+4,null,null,English,English:English,"language:English"
